@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pixel Forge Campaign</title>
+<title>Pixel Forge</title>
 
 <style>
 :root{
@@ -11,7 +11,7 @@
   --bg:#080a13;
   --panel:#121629;
   --panel2:#1b2139;
-  --border:rgba(255,255,255,.1);
+  --border:#ffffff1a;
   --text:#f7f7ff;
   --muted:#9da7c7;
   --purple:#8b5cf6;
@@ -26,8 +26,7 @@
   user-select:none;
 }
 
-html,
-body{
+html,body{
   width:100%;
   height:100%;
   margin:0;
@@ -35,18 +34,15 @@ body{
 }
 
 body{
-  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   color:var(--text);
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   background:
-    radial-gradient(circle at 15% 15%,rgba(139,92,246,.18),transparent 28%),
-    radial-gradient(circle at 85% 10%,rgba(56,189,248,.15),transparent 25%),
+    radial-gradient(circle at 15% 15%,#8b5cf62d,transparent 28%),
+    radial-gradient(circle at 85% 10%,#38bdf826,transparent 25%),
     var(--bg);
 }
 
-button,
-input,
-select,
-textarea{
+button,input,select,textarea{
   font:inherit;
 }
 
@@ -73,7 +69,7 @@ button{
   min-width:0;
   padding:10px 16px;
   border-bottom:1px solid var(--border);
-  background:rgba(9,12,24,.93);
+  background:#090c18ed;
   backdrop-filter:blur(18px);
 }
 
@@ -92,7 +88,7 @@ button{
   height:42px;
   border-radius:13px;
   background:linear-gradient(135deg,var(--purple),#5b21b6);
-  box-shadow:0 8px 25px rgba(139,92,246,.3);
+  box-shadow:0 8px 25px #8b5cf650;
   font-size:20px;
 }
 
@@ -132,12 +128,12 @@ button{
   background:var(--panel2);
   cursor:pointer;
   white-space:nowrap;
-  transition:.15s ease;
+  transition:.15s;
 }
 
 .btn:hover{
   transform:translateY(-1px);
-  border-color:rgba(255,255,255,.2);
+  border-color:#ffffff33;
   background:#282f50;
 }
 
@@ -152,8 +148,8 @@ button{
 }
 
 .btn.red{
-  background:rgba(251,113,133,.12);
   color:#ffc2cc;
+  background:#fb71851c;
 }
 
 .workspace{
@@ -163,10 +159,7 @@ button{
   overflow:hidden;
 }
 
-/*
-  IMPORTANT FIX:
-  Campaign mode uses one full-width column.
-*/
+/* Campaign is full width by default. */
 .game-layout{
   display:grid;
   grid-template-columns:minmax(0,1fr);
@@ -176,9 +169,7 @@ button{
   min-height:0;
 }
 
-/*
-  The sidebar column is only created while editor-layout is active.
-*/
+/* The editor adds the sidebar only when needed. */
 .game-layout.editor-layout{
   grid-template-columns:230px minmax(0,1fr);
 }
@@ -189,7 +180,7 @@ button{
   overflow-y:auto;
   padding:15px;
   border-right:1px solid var(--border);
-  background:rgba(12,15,30,.94);
+  background:#0c0f1ef0;
 }
 
 .section-title{
@@ -218,16 +209,15 @@ button{
   padding:9px 4px;
   border:1px solid var(--border);
   border-radius:11px;
-  background:rgba(255,255,255,.03);
+  background:#ffffff08;
   color:var(--muted);
   cursor:pointer;
 }
 
-.tool:hover,
-.tool.selected{
+.tool:hover,.tool.selected{
   color:#fff;
   border-color:var(--purple2);
-  background:rgba(139,92,246,.13);
+  background:#8b5cf621;
 }
 
 .tool b{
@@ -251,8 +241,7 @@ button{
   font-weight:700;
 }
 
-.field input,
-.field select{
+.field input,.field select{
   width:100%;
   padding:9px;
   border:1px solid var(--border);
@@ -262,8 +251,7 @@ button{
   background:#151a2e;
 }
 
-.field input:focus,
-.field select:focus{
+.field input:focus,.field select:focus{
   border-color:var(--purple);
 }
 
@@ -281,22 +269,19 @@ canvas{
   display:block;
   width:100%;
   height:100%;
-  min-width:0;
-  min-height:0;
   outline:none;
   image-rendering:pixelated;
   touch-action:none;
 }
 
-.badge,
-.hud{
+.badge,.hud{
   position:absolute;
   z-index:5;
   top:13px;
   padding:8px 12px;
   border:1px solid var(--border);
   border-radius:999px;
-  background:rgba(7,10,20,.82);
+  background:#070a14d8;
   backdrop-filter:blur(12px);
   font-size:11px;
   font-weight:800;
@@ -320,8 +305,8 @@ canvas{
   min-width:0;
   padding:0 14px;
   border-top:1px solid var(--border);
-  background:#080a13;
   color:var(--muted);
+  background:#080a13;
   font-size:11px;
 }
 
@@ -340,7 +325,7 @@ canvas{
   padding:25px;
   overflow:auto;
   background:
-    radial-gradient(circle at 50% 20%,rgba(139,92,246,.27),transparent 33%),
+    radial-gradient(circle at 50% 20%,#8b5cf645,transparent 33%),
     linear-gradient(145deg,#080a13,#10152b);
 }
 
@@ -357,7 +342,7 @@ canvas{
   margin:0 auto 16px;
   border-radius:25px;
   background:linear-gradient(135deg,var(--purple),#4c1d95);
-  box-shadow:0 20px 55px rgba(139,92,246,.3);
+  box-shadow:0 20px 55px #8b5cf64d;
   font-size:39px;
 }
 
@@ -384,7 +369,7 @@ canvas{
   background:#151a2f;
   text-align:left;
   cursor:pointer;
-  transition:.18s ease;
+  transition:.18s;
 }
 
 .menu-choice:hover{
@@ -445,7 +430,7 @@ canvas{
   background:#151a2f;
   text-align:left;
   cursor:pointer;
-  transition:.17s ease;
+  transition:.17s;
 }
 
 .level-card:hover:not(.locked){
@@ -466,8 +451,8 @@ canvas{
   height:34px;
   margin-bottom:15px;
   border-radius:10px;
-  background:rgba(139,92,246,.17);
   color:#c4b5fd;
+  background:#8b5cf62b;
   font-weight:900;
 }
 
@@ -497,7 +482,7 @@ canvas{
   display:grid;
   place-items:center;
   padding:20px;
-  background:rgba(2,4,12,.8);
+  background:#02040cce;
   backdrop-filter:blur(9px);
 }
 
@@ -507,7 +492,7 @@ canvas{
   border:1px solid var(--border);
   border-radius:18px;
   background:var(--panel);
-  box-shadow:0 30px 90px rgba(0,0,0,.55);
+  box-shadow:0 30px 90px #0009;
 }
 
 .modal-card h2{
@@ -527,8 +512,8 @@ canvas{
   border:1px solid var(--border);
   border-radius:10px;
   outline:none;
-  background:#080b16;
   color:#dfe6ff;
+  background:#080b16;
   font:12px/1.5 monospace;
   user-select:text;
 }
@@ -550,7 +535,7 @@ canvas{
 .win-stat{
   padding:13px;
   border-radius:11px;
-  background:rgba(255,255,255,.04);
+  background:#ffffff0a;
   text-align:center;
 }
 
@@ -573,7 +558,7 @@ canvas{
   border:1px solid var(--border);
   border-radius:11px;
   background:#161b31;
-  box-shadow:0 15px 40px rgba(0,0,0,.5);
+  box-shadow:0 15px 40px #0008;
   font-size:12px;
   font-weight:700;
 }
@@ -603,7 +588,7 @@ canvas{
   }
 
   .sidebar{
-    max-height:106px;
+    max-height:108px;
     padding:8px;
     border-right:0;
     border-bottom:1px solid var(--border);
@@ -631,10 +616,6 @@ canvas{
 
   .level-grid{
     grid-template-columns:1fr;
-  }
-
-  .status span:last-child{
-    display:none;
   }
 }
 </style>
@@ -670,45 +651,16 @@ canvas{
         <div class="section-title">Level Objects</div>
 
         <div class="tools" id="tools">
-          <button class="tool selected" data-tool="ground">
-            <b>🟫</b><span>Ground</span>
-          </button>
-
-          <button class="tool" data-tool="brick">
-            <b>🧱</b><span>Brick</span>
-          </button>
-
-          <button class="tool" data-tool="ice">
-            <b>🧊</b><span>Ice</span>
-          </button>
-
-          <button class="tool" data-tool="spike">
-            <b>▲</b><span>Spike</span>
-          </button>
-
-          <button class="tool" data-tool="coin">
-            <b>●</b><span>Coin</span>
-          </button>
-
-          <button class="tool" data-tool="bounce">
-            <b>⇧</b><span>Bounce</span>
-          </button>
-
-          <button class="tool" data-tool="checkpoint">
-            <b>◆</b><span>Checkpoint</span>
-          </button>
-
-          <button class="tool" data-tool="goal">
-            <b>⚑</b><span>Goal</span>
-          </button>
-
-          <button class="tool" data-tool="spawn">
-            <b>🙂</b><span>Spawn</span>
-          </button>
-
-          <button class="tool" data-tool="erase">
-            <b>⌫</b><span>Erase</span>
-          </button>
+          <button class="tool selected" data-tool="ground"><b>🟫</b><span>Ground</span></button>
+          <button class="tool" data-tool="brick"><b>🧱</b><span>Brick</span></button>
+          <button class="tool" data-tool="ice"><b>🧊</b><span>Ice</span></button>
+          <button class="tool" data-tool="spike"><b>▲</b><span>Spike</span></button>
+          <button class="tool" data-tool="coin"><b>●</b><span>Coin</span></button>
+          <button class="tool" data-tool="bounce"><b>⇧</b><span>Bounce</span></button>
+          <button class="tool" data-tool="checkpoint"><b>◆</b><span>Checkpoint</span></button>
+          <button class="tool" data-tool="goal"><b>⚑</b><span>Goal</span></button>
+          <button class="tool" data-tool="spawn"><b>🙂</b><span>Spawn</span></button>
+          <button class="tool" data-tool="erase"><b>⌫</b><span>Erase</span></button>
         </div>
 
         <div class="section-title">Settings</div>
@@ -720,6 +672,7 @@ canvas{
 
         <div class="field">
           <label for="bgSelect">Background</label>
+
           <select id="bgSelect">
             <option value="night">Neon Night</option>
             <option value="sunset">Purple Sunset</option>
@@ -733,6 +686,7 @@ canvas{
           <label for="gravityInput">
             Gravity: <span id="gravityLabel">0.70</span>
           </label>
+
           <input id="gravityInput" type="range" min=".3" max="1.2" step=".05">
         </div>
       </aside>
@@ -758,7 +712,7 @@ canvas{
         <div class="menu-buttons">
           <button class="menu-choice" id="campaignBtn">
             <strong>▶ Play Campaign</strong>
-            <span>Complete eight increasingly difficult levels and collect every coin.</span>
+            <span>Complete eight balanced levels and collect every coin.</span>
           </button>
 
           <button class="menu-choice" id="editorBtn">
@@ -838,1868 +792,1597 @@ canvas{
 
 <script>
 (() => {
-  "use strict";
+"use strict";
 
-  const $ = id => document.getElementById(id);
+const $ = id => document.getElementById(id);
+const canvas = $("canvas");
+const ctx = canvas.getContext("2d");
 
-  const canvas = $("canvas");
-  const ctx = canvas.getContext("2d");
+const TILE = 32;
+const COLS = 60;
+const ROWS = 24;
+const WORLD_WIDTH = COLS * TILE;
+const WORLD_HEIGHT = ROWS * TILE;
 
-  const TILE = 32;
-  const COLS = 60;
-  const ROWS = 24;
-  const WORLD_WIDTH = COLS * TILE;
-  const WORLD_HEIGHT = ROWS * TILE;
+const solidTypes = new Set(["ground","brick","ice","bounce"]);
 
-  const solids = new Set(["ground", "brick", "ice", "bounce"]);
+const allowedTypes = new Set([
+  "ground","brick","ice","spike","coin",
+  "bounce","checkpoint","goal","spawn"
+]);
 
-  const allowedTiles = new Set([
-    "ground",
-    "brick",
-    "ice",
-    "spike",
-    "coin",
-    "bounce",
-    "checkpoint",
-    "goal",
-    "spawn"
-  ]);
+const keys = {};
 
-  const keys = {};
+const backgrounds = {
+  night:["#101534","#273b70"],
+  sunset:["#4c1d6f","#f9738e"],
+  forest:["#082f2b","#1d7054"],
+  ice:["#36577f","#a9dfed"],
+  void:["#02030a","#17132a"]
+};
 
-  const palettes = {
-    night: ["#101534", "#273b70", "#8b5cf6"],
-    sunset: ["#4c1d6f", "#f9738e", "#fdba74"],
-    forest: ["#082f2b", "#1d7054", "#34d399"],
-    ice: ["#36577f", "#a9dfed", "#e0f2fe"],
-    void: ["#02030a", "#17132a", "#7c3aed"]
+let screenMode = "menu";
+let gameMode = "edit";
+let level = null;
+let editorLevel = null;
+let playBackup = null;
+let campaignIndex = 0;
+let selectedTool = "ground";
+
+let camera = {x:0,y:0};
+let pointerDown = false;
+let lastPainted = "";
+
+let totalCoins = 0;
+let collectedCoins = 0;
+let deaths = 0;
+let particles = [];
+let importMode = false;
+let lastFrameTime = performance.now();
+
+function blankLevel(name="Custom Level",background="night",gravity=.7){
+  return {name,background,gravity,tiles:{}};
+}
+
+function makeLevel(name,background,gravity,builder){
+  const created = blankLevel(name,background,gravity);
+
+  const add = (type,x,y,width=1,height=1) => {
+    for(let yy=y;yy<y+height;yy++){
+      for(let xx=x;xx<x+width;xx++){
+        if(xx>=0&&xx<COLS&&yy>=0&&yy<ROWS){
+          created.tiles[`${xx},${yy}`]=type;
+        }
+      }
+    }
   };
 
-  let screenMode = "menu";
-  let gameMode = "edit";
-  let level = null;
-  let editorLevel = null;
-  let playBackup = null;
-  let campaignIndex = 0;
-  let selectedTool = "ground";
+  builder(add,(x,y)=>add("coin",x,y));
+  return created;
+}
 
-  let camera = { x: 0, y: 0 };
-  let mouseDown = false;
-  let lastPaintedCell = "";
+/*
+  All normal campaign jumps are intentionally kept short.
+  Coins sit directly above platforms or safe landing areas.
+*/
+const campaign = [
+  makeLevel("First Steps","night",.7,(add,coin)=>{
+    add("ground",0,22,60,2);
+    add("spawn",2,21);
 
-  let totalCoins = 0;
-  let collectedCoins = 0;
-  let deaths = 0;
-  let particles = [];
-  let importMode = false;
-  let lastTime = performance.now();
+    add("brick",7,19,5);
+    add("brick",14,18,5);
+    add("brick",21,19,6);
+    add("brick",30,17,6);
+    add("brick",39,19,6);
+    add("brick",48,17,7);
 
-  function blankLevel(
-    name = "Custom Level",
-    background = "night",
-    gravity = 0.7
-  ) {
-    return {
-      name,
-      background,
-      gravity,
-      tiles: {}
-    };
+    coin(9,18);
+    coin(16,17);
+    coin(24,18);
+    coin(33,16);
+    coin(42,18);
+    coin(51,16);
+
+    add("goal",53,16);
+  }),
+
+  makeLevel("Mind the Gap","sunset",.7,(add,coin)=>{
+    add("ground",0,22,8,2);
+    add("spawn",2,21);
+
+    add("ground",10,21,6,3);
+    add("ground",18,19,6,5);
+    add("ground",26,21,6,3);
+    add("ground",34,18,7,6);
+    add("ground",43,20,6,4);
+    add("ground",51,21,9,3);
+
+    coin(12,20);
+    coin(20,18);
+    coin(28,20);
+    coin(37,17);
+    coin(45,19);
+    coin(54,20);
+
+    add("checkpoint",35,17);
+    add("goal",57,20);
+  }),
+
+  makeLevel("Spike Valley","void",.69,(add,coin)=>{
+    add("ground",0,22,60,2);
+    add("spawn",2,21);
+
+    add("spike",8,21,2);
+    add("brick",11,19,4);
+
+    add("spike",17,21,3);
+    add("brick",21,18,5);
+
+    add("spike",28,21,3);
+    add("brick",32,19,5);
+
+    add("spike",39,21,3);
+    add("brick",43,17,5);
+
+    add("spike",50,21,2);
+    add("brick",53,19,6);
+
+    coin(12,18);
+    coin(23,17);
+    coin(34,18);
+    coin(45,16);
+    coin(55,18);
+
+    add("checkpoint",33,18);
+    add("goal",57,18);
+  }),
+
+  makeLevel("Bounce House","forest",.7,(add,coin)=>{
+    add("ground",0,22,60,2);
+    add("spawn",2,21);
+
+    add("bounce",8,21);
+    add("brick",10,16,7);
+
+    add("bounce",20,21);
+    add("brick",22,13,7);
+
+    add("bounce",32,21);
+    add("brick",34,10,7);
+
+    add("checkpoint",35,9);
+
+    add("bounce",44,21);
+    add("brick",46,14,8);
+
+    coin(13,15);
+    coin(25,12);
+    coin(37,9);
+    coin(49,13);
+
+    add("goal",52,13);
+  }),
+
+  makeLevel("Cold Feet","ice",.66,(add,coin)=>{
+    add("ground",0,22,8,2);
+    add("spawn",2,21);
+
+    add("ice",9,21,7);
+    add("ice",18,19,7);
+    add("ice",27,21,7);
+    add("ice",36,18,7);
+    add("ice",45,20,7);
+    add("ground",54,22,6,2);
+
+    add("spike",16,21);
+    add("spike",34,21);
+    add("spike",52,21);
+
+    coin(12,20);
+    coin(21,18);
+    coin(30,20);
+    coin(39,17);
+    coin(48,19);
+
+    add("checkpoint",37,17);
+    add("goal",57,21);
+  }),
+
+  makeLevel("High Road","sunset",.69,(add,coin)=>{
+    add("ground",0,22,8,2);
+    add("spawn",2,21);
+
+    add("brick",9,20,5);
+    add("brick",15,18,5);
+    add("brick",21,16,5);
+    add("brick",27,14,5);
+    add("brick",33,12,5);
+
+    add("brick",39,14,5);
+    add("brick",45,16,5);
+    add("brick",51,18,5);
+    add("ground",57,22,3,2);
+
+    coin(11,19);
+    coin(17,17);
+    coin(23,15);
+    coin(29,13);
+    coin(35,11);
+    coin(41,13);
+    coin(47,15);
+    coin(53,17);
+
+    add("checkpoint",34,11);
+    add("goal",54,17);
+  }),
+
+  makeLevel("Checkpoint Run","forest",.71,(add,coin)=>{
+    add("ground",0,22,60,2);
+    add("spawn",2,21);
+
+    add("spike",8,21,2);
+    add("brick",11,18,5);
+
+    add("bounce",18,21);
+    add("brick",20,14,7);
+
+    add("spike",28,21,3);
+    add("brick",32,19,5);
+    add("checkpoint",34,18);
+
+    add("bounce",39,21);
+    add("brick",41,14,7);
+
+    add("spike",49,21,2);
+    add("brick",52,18,7);
+
+    coin(13,17);
+    coin(23,13);
+    coin(34,17);
+    coin(44,13);
+    coin(55,17);
+
+    add("goal",57,17);
+  }),
+
+  makeLevel("Pixel Summit","void",.7,(add,coin)=>{
+    add("ground",0,22,8,2);
+    add("spawn",2,21);
+
+    add("spike",8,21,2);
+    add("bounce",11,21);
+    add("brick",13,16,6);
+
+    add("brick",21,18,5);
+    add("ice",28,15,6);
+
+    add("ground",36,22,5,2);
+    add("bounce",38,21);
+    add("brick",40,11,7);
+
+    add("checkpoint",43,10);
+
+    add("brick",48,14,5);
+    add("ice",54,17,6);
+
+    coin(15,15);
+    coin(23,17);
+    coin(30,14);
+    coin(43,9);
+    coin(50,13);
+    coin(56,16);
+
+    add("goal",58,16);
+  })
+];
+
+const descriptions = [
+  "Learn movement and practice safe platform jumps.",
+  "Cross short gaps using raised landing areas.",
+  "Jump over hazards without needing perfect timing.",
+  "Use aligned bounce pads to climb higher.",
+  "Control momentum across easier ice platforms.",
+  "Climb a gradual staircase of platforms.",
+  "Mix hazards, bounce pads and checkpoints.",
+  "A final level combining every mechanic."
+];
+
+function clone(value){
+  return JSON.parse(JSON.stringify(value));
+}
+
+function createPlayer(){
+  return {
+    x:0,
+    y:0,
+    width:22,
+    height:28,
+    vx:0,
+    vy:0,
+    grounded:false,
+    spawnX:0,
+    spawnY:0,
+    facing:1,
+    jumpHeld:false,
+    coyote:0,
+    jumpBuffer:0,
+    won:false
+  };
+}
+
+let player = createPlayer();
+
+function loadProgress(){
+  try{
+    const saved = JSON.parse(localStorage.getItem("pixelForgeCampaign"));
+
+    if(saved&&Number.isInteger(saved.unlocked)&&saved.best){
+      return saved;
+    }
+  }catch(error){}
+
+  return {unlocked:1,best:{}};
+}
+
+let progress = loadProgress();
+
+function saveProgress(){
+  localStorage.setItem("pixelForgeCampaign",JSON.stringify(progress));
+}
+
+function canvasSize(){
+  const rect = canvas.getBoundingClientRect();
+  return {width:rect.width,height:rect.height};
+}
+
+function resizeCanvas(){
+  const rect = canvas.getBoundingClientRect();
+  const ratio = Math.min(window.devicePixelRatio||1,2);
+
+  canvas.width = Math.max(1,Math.floor(rect.width*ratio));
+  canvas.height = Math.max(1,Math.floor(rect.height*ratio));
+
+  ctx.setTransform(ratio,0,0,ratio,0,0);
+  clampCamera();
+}
+
+function queueResize(){
+  requestAnimationFrame(()=>{
+    resizeCanvas();
+    requestAnimationFrame(resizeCanvas);
+  });
+}
+
+function clampCamera(){
+  const size = canvasSize();
+
+  camera.x = Math.max(
+    0,
+    Math.min(Math.max(0,WORLD_WIDTH-size.width),camera.x)
+  );
+
+  camera.y = Math.max(
+    0,
+    Math.min(Math.max(0,WORLD_HEIGHT-size.height),camera.y)
+  );
+}
+
+function tileAt(x,y){
+  return level?.tiles[`${x},${y}`];
+}
+
+function findTile(type){
+  for(const [key,value] of Object.entries(level.tiles)){
+    if(value===type){
+      const [x,y]=key.split(",").map(Number);
+      return {x,y};
+    }
   }
 
-  function makeLevel(name, background, gravity, build) {
-    const createdLevel = blankLevel(name, background, gravity);
+  return null;
+}
 
-    const add = (type, x, y, width = 1, height = 1) => {
-      for (let tileY = y; tileY < y + height; tileY++) {
-        for (let tileX = x; tileX < x + width; tileX++) {
-          if (
-            tileX >= 0 &&
-            tileX < COLS &&
-            tileY >= 0 &&
-            tileY < ROWS
-          ) {
-            createdLevel.tiles[`${tileX},${tileY}`] = type;
-          }
-        }
-      }
-    };
+function setEditorLayout(enabled){
+  $("gameLayout").classList.toggle("editor-layout",enabled);
+  $("editorSidebar").classList.toggle("hidden",!enabled);
+  queueResize();
+}
 
-    const coin = (x, y) => add("coin", x, y);
+function hideScreens(){
+  $("mainMenu").classList.add("hidden");
+  $("levelSelect").classList.add("hidden");
+}
 
-    build(add, coin);
+function showScreen(id){
+  hideScreens();
 
-    return createdLevel;
+  if(id){
+    $(id).classList.remove("hidden");
   }
 
-  const campaign = [
-    makeLevel("First Steps", "night", 0.7, (add, coin) => {
-      add("ground", 0, 22, 60, 2);
-      add("spawn", 2, 21);
-      add("brick", 7, 19, 5);
-      add("brick", 16, 17, 5);
-      add("brick", 26, 19, 6);
-      add("brick", 37, 16, 6);
-      coin(9, 18);
-      coin(18, 16);
-      coin(29, 18);
-      coin(40, 15);
-      add("goal", 53, 21);
-    }),
+  queueResize();
+}
 
-    makeLevel("Mind the Gap", "sunset", 0.7, (add, coin) => {
-      add("ground", 0, 22, 8, 2);
-      add("spawn", 2, 21);
-      add("ground", 11, 20, 6, 4);
-      add("ground", 21, 18, 6, 6);
-      add("ground", 31, 20, 5, 4);
-      add("ground", 40, 17, 7, 7);
-      add("ground", 51, 21, 9, 3);
-      coin(13, 19);
-      coin(23, 17);
-      coin(33, 19);
-      coin(43, 16);
-      add("checkpoint", 32, 19);
-      add("goal", 56, 20);
-    }),
+function showEditorButtons(show){
+  [
+    "testBtn","saveBtn","loadBtn",
+    "exportBtn","importBtn","clearBtn"
+  ].forEach(id=>$(id).classList.toggle("hidden",!show));
+}
 
-    makeLevel("Spike Valley", "void", 0.69, (add, coin) => {
-      add("ground", 0, 22, 60, 2);
-      add("spawn", 2, 21);
-      add("spike", 8, 21, 3);
-      add("spike", 16, 21, 4);
-      add("spike", 27, 21, 5);
-      add("spike", 39, 21, 6);
-      add("brick", 12, 18, 4);
-      add("brick", 22, 16, 4);
-      add("brick", 34, 18, 4);
-      add("brick", 47, 15, 5);
-      coin(14, 17);
-      coin(24, 15);
-      coin(36, 17);
-      coin(49, 14);
-      add("checkpoint", 33, 21);
-      add("goal", 56, 21);
-    }),
+function goHome(){
+  screenMode="menu";
+  gameMode="edit";
 
-    makeLevel("Bounce House", "forest", 0.72, (add, coin) => {
-      add("ground", 0, 22, 60, 2);
-      add("spawn", 2, 21);
-      add("bounce", 8, 21);
-      add("brick", 11, 15, 6);
-      add("bounce", 19, 21);
-      add("brick", 22, 12, 6);
-      add("bounce", 31, 21);
-      add("brick", 34, 9, 7);
-      add("bounce", 44, 21);
-      add("brick", 47, 14, 7);
-      coin(13, 14);
-      coin(24, 11);
-      coin(37, 8);
-      coin(50, 13);
-      add("goal", 52, 13);
-    }),
+  showScreen("mainMenu");
+  setEditorLayout(false);
+  showEditorButtons(false);
 
-    makeLevel("Cold Feet", "ice", 0.67, (add, coin) => {
-      add("ground", 0, 22, 7, 2);
-      add("spawn", 2, 21);
-      add("ice", 8, 20, 8);
-      add("ice", 18, 17, 7);
-      add("ice", 27, 20, 8);
-      add("ice", 37, 15, 8);
-      add("ice", 47, 19, 7);
-      add("ground", 55, 22, 5, 2);
-      add("spike", 15, 21);
-      add("spike", 34, 21);
-      coin(11, 19);
-      coin(21, 16);
-      coin(31, 19);
-      coin(41, 14);
-      add("checkpoint", 38, 14);
-      add("goal", 57, 21);
-    }),
+  $("restartBtn").classList.add("hidden");
+  $("hud").classList.add("hidden");
+  $("modeBadge").textContent="MAIN MENU";
+  $("statusText").textContent="Choose a mode to begin";
+}
 
-    makeLevel("High Road", "sunset", 0.7, (add, coin) => {
-      add("ground", 0, 22, 9, 2);
-      add("spawn", 2, 21);
-      add("brick", 10, 19, 5);
-      add("brick", 17, 16, 5);
-      add("brick", 24, 13, 5);
-      add("brick", 31, 10, 5);
-      add("brick", 38, 13, 5);
-      add("brick", 45, 16, 5);
-      add("brick", 52, 19, 8);
-      coin(12, 18);
-      coin(19, 15);
-      coin(26, 12);
-      coin(33, 9);
-      coin(40, 12);
-      coin(47, 15);
-      add("checkpoint", 31, 9);
-      add("goal", 57, 18);
-    }),
+function showLevelSelect(){
+  screenMode="levels";
+  gameMode="edit";
 
-    makeLevel("Checkpoint Run", "forest", 0.74, (add, coin) => {
-      add("ground", 0, 22, 60, 2);
-      add("spawn", 2, 21);
-      add("spike", 9, 21, 4);
-      add("bounce", 15, 21);
-      add("brick", 18, 15, 6);
-      add("spike", 27, 21, 5);
-      add("brick", 30, 18, 4);
-      add("checkpoint", 33, 17);
-      add("bounce", 37, 21);
-      add("brick", 40, 13, 6);
-      add("spike", 49, 21, 4);
-      add("brick", 52, 17, 6);
-      coin(20, 14);
-      coin(31, 17);
-      coin(42, 12);
-      coin(54, 16);
-      add("goal", 57, 16);
-    }),
+  showScreen("levelSelect");
+  setEditorLayout(false);
+  showEditorButtons(false);
 
-    makeLevel("Pixel Summit", "void", 0.72, (add, coin) => {
-      add("ground", 0, 22, 8, 2);
-      add("spawn", 2, 21);
-      add("spike", 8, 21, 5);
-      add("bounce", 14, 21);
-      add("brick", 17, 16, 5);
-      coin(19, 15);
-      add("ice", 24, 13, 6);
-      coin(27, 12);
-      add("spike", 31, 21, 5);
-      add("bounce", 37, 21);
-      add("brick", 40, 10, 6);
-      add("checkpoint", 43, 9);
-      coin(43, 8);
-      add("ice", 48, 14, 5);
-      add("spike", 53, 21, 3);
-      add("brick", 55, 18, 5);
-      coin(57, 17);
-      add("goal", 58, 17);
-    })
-  ];
+  $("restartBtn").classList.add("hidden");
+  $("hud").classList.add("hidden");
+  $("modeBadge").textContent="LEVEL SELECT";
 
-  const descriptions = [
-    "Learn the basics of running and jumping.",
-    "Cross wide gaps and reach distant platforms.",
-    "Time your jumps through a dangerous valley.",
-    "Use bounce pads to climb higher.",
-    "Control your momentum on slippery platforms.",
-    "Climb to the top and make your way down.",
-    "Survive a longer challenge with a checkpoint.",
-    "A final challenge combining every mechanic."
-  ];
+  renderLevelSelect();
+}
 
-  function loadProgress() {
-    try {
-      const saved = JSON.parse(
-        localStorage.getItem("pixelForgeCampaign")
-      );
+function renderLevelSelect(){
+  $("levelGrid").innerHTML="";
 
-      if (
-        saved &&
-        Number.isInteger(saved.unlocked) &&
-        saved.best
-      ) {
-        return saved;
-      }
-    } catch (error) {
-      console.warn("Campaign progress could not be loaded.");
+  campaign.forEach((campaignLevel,index)=>{
+    const locked=index+1>progress.unlocked;
+    const best=progress.best[index];
+    const card=document.createElement("button");
+
+    card.className="level-card"+(locked?" locked":"");
+
+    card.innerHTML=`
+      <div class="level-number">${locked?"🔒":index+1}</div>
+      <h3>${campaignLevel.name}</h3>
+      <p>${descriptions[index]}</p>
+      <div class="level-score">
+        ${best?`★ Best: ${best.coins}/${best.total} coins`:"☆ Not completed"}
+      </div>
+    `;
+
+    if(!locked){
+      card.addEventListener("click",()=>startCampaign(index));
     }
 
-    return {
-      unlocked: 1,
-      best: {}
-    };
+    $("levelGrid").appendChild(card);
+  });
+}
+
+function startCampaign(index){
+  campaignIndex=index;
+  level=clone(campaign[index]);
+  screenMode="campaign";
+
+  hideScreens();
+  setEditorLayout(false);
+  showEditorButtons(false);
+
+  $("restartBtn").classList.remove("hidden");
+  $("hud").classList.remove("hidden");
+  $("modeBadge").textContent=
+    `LEVEL ${index+1}: ${level.name.toUpperCase()}`;
+
+  $("statusText").textContent=
+    `Campaign level ${index+1} of ${campaign.length}`;
+
+  startPlaying();
+}
+
+function createEditorLevel(){
+  const created=blankLevel();
+
+  for(let x=0;x<COLS;x++){
+    created.tiles[`${x},22`]="ground";
+    created.tiles[`${x},23`]="ground";
   }
 
-  let progress = loadProgress();
+  created.tiles["2,21"]="spawn";
+  created.tiles["10,18"]="brick";
+  created.tiles["11,18"]="brick";
+  created.tiles["12,18"]="brick";
+  created.tiles["11,17"]="coin";
+  created.tiles["55,21"]="goal";
 
-  function saveProgress() {
-    localStorage.setItem(
-      "pixelForgeCampaign",
-      JSON.stringify(progress)
-    );
+  return created;
+}
+
+function openEditor(){
+  screenMode="editor";
+  gameMode="edit";
+
+  hideScreens();
+  setEditorLayout(true);
+  showEditorButtons(true);
+
+  $("restartBtn").classList.add("hidden");
+  $("hud").classList.add("hidden");
+  $("modeBadge").textContent="LEVEL EDITOR";
+
+  if(!editorLevel){
+    editorLevel=createEditorLevel();
   }
 
-  function clone(value) {
-    return JSON.parse(JSON.stringify(value));
-  }
+  level=editorLevel;
+  camera.x=0;
+  camera.y=Math.max(0,WORLD_HEIGHT-canvasSize().height);
 
-  function createPlayer() {
-    return {
-      x: 0,
-      y: 0,
-      width: 22,
-      height: 28,
-      vx: 0,
-      vy: 0,
-      grounded: false,
-      spawnX: 0,
-      spawnY: 0,
-      facing: 1,
-      jumpHeld: false,
-      coyote: 0,
-      buffer: 0,
-      won: false
-    };
-  }
+  syncEditorSettings();
 
-  let player = createPlayer();
+  $("statusText").textContent=
+    "Click and drag to place tiles · Right-click to erase";
 
-  function canvasSize() {
-    const rectangle = canvas.getBoundingClientRect();
+  queueResize();
+}
 
-    return {
-      width: rectangle.width,
-      height: rectangle.height
-    };
-  }
+function syncEditorSettings(){
+  $("nameInput").value=level.name;
+  $("bgSelect").value=level.background;
+  $("gravityInput").value=level.gravity;
+  $("gravityLabel").textContent=Number(level.gravity).toFixed(2);
+}
 
-  function resizeCanvas() {
-    const rectangle = canvas.getBoundingClientRect();
-    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+function startPlaying(){
+  gameMode="play";
+  playBackup=clone(level);
 
-    canvas.width = Math.max(
-      1,
-      Math.floor(rectangle.width * pixelRatio)
-    );
+  const spawn=findTile("spawn")||{x:2,y:20};
 
-    canvas.height = Math.max(
-      1,
-      Math.floor(rectangle.height * pixelRatio)
-    );
+  player=createPlayer();
+  player.x=spawn.x*TILE+5;
+  player.y=spawn.y*TILE+TILE-player.height;
+  player.spawnX=player.x;
+  player.spawnY=player.y;
 
-    ctx.setTransform(
-      pixelRatio,
-      0,
-      0,
-      pixelRatio,
-      0,
-      0
-    );
+  totalCoins=Object.values(level.tiles).filter(type=>type==="coin").length;
+  collectedCoins=0;
+  deaths=0;
+  particles=[];
 
-    clampCamera();
-  }
+  $("coinHud").textContent=`0 / ${totalCoins}`;
+  $("deathHud").textContent="0";
+  $("hud").classList.remove("hidden");
 
-  function queueCanvasResize() {
-    requestAnimationFrame(() => {
-      resizeCanvas();
-
-      requestAnimationFrame(resizeCanvas);
-    });
-  }
-
-  function clampCamera() {
-    const dimensions = canvasSize();
-
-    const maximumX = Math.max(
-      0,
-      WORLD_WIDTH - dimensions.width
-    );
-
-    const maximumY = Math.max(
-      0,
-      WORLD_HEIGHT - dimensions.height
-    );
-
-    camera.x = Math.max(
-      0,
-      Math.min(maximumX, camera.x)
-    );
-
-    camera.y = Math.max(
-      0,
-      Math.min(maximumY, camera.y)
-    );
-  }
-
-  function tileAt(x, y) {
-    return level.tiles[`${x},${y}`];
-  }
-
-  function findTile(type) {
-    for (const [key, value] of Object.entries(level.tiles)) {
-      if (value === type) {
-        const [x, y] = key.split(",").map(Number);
-        return { x, y };
-      }
-    }
-
-    return null;
-  }
-
-  function setEditorLayout(enabled) {
-    $("gameLayout").classList.toggle(
-      "editor-layout",
-      enabled
-    );
-
-    $("editorSidebar").classList.toggle(
-      "hidden",
-      !enabled
-    );
-
-    queueCanvasResize();
-  }
-
-  function hideMenuScreens() {
-    $("mainMenu").classList.add("hidden");
-    $("levelSelect").classList.add("hidden");
-  }
-
-  function showOnlyScreen(id) {
-    hideMenuScreens();
-
-    if (id) {
-      $(id).classList.remove("hidden");
-    }
-
-    queueCanvasResize();
-  }
-
-  function setEditorButtons(visible) {
-    [
-      "testBtn",
-      "saveBtn",
-      "loadBtn",
-      "exportBtn",
-      "importBtn",
-      "clearBtn"
-    ].forEach(id => {
-      $(id).classList.toggle("hidden", !visible);
-    });
-  }
-
-  function goHome() {
-    screenMode = "menu";
-    gameMode = "edit";
-
-    showOnlyScreen("mainMenu");
+  if(screenMode==="editor"){
     setEditorLayout(false);
-    setEditorButtons(false);
-
-    $("restartBtn").classList.add("hidden");
-    $("hud").classList.add("hidden");
-    $("modeBadge").textContent = "MAIN MENU";
-    $("statusText").textContent = "Choose a mode to begin";
+    $("testBtn").textContent="■ Stop Testing";
+    $("modeBadge").textContent="CUSTOM LEVEL TEST";
   }
 
-  function showLevels() {
-    screenMode = "levels";
-    gameMode = "edit";
+  focusCamera(true);
+  queueResize();
+  canvas.focus();
+}
 
-    showOnlyScreen("levelSelect");
-    setEditorLayout(false);
-    setEditorButtons(false);
+function stopEditorTest(){
+  level=clone(playBackup);
+  editorLevel=level;
+  gameMode="edit";
 
-    $("restartBtn").classList.add("hidden");
-    $("hud").classList.add("hidden");
-    $("modeBadge").textContent = "LEVEL SELECT";
+  $("testBtn").textContent="▶ Test Level";
+  $("hud").classList.add("hidden");
+  $("modeBadge").textContent="LEVEL EDITOR";
 
-    renderLevels();
+  setEditorLayout(true);
+  syncEditorSettings();
+}
+
+function restartLevel(){
+  if(gameMode!=="play"){
+    return;
   }
 
-  function renderLevels() {
-    $("levelGrid").innerHTML = "";
+  level=clone(playBackup);
+  startPlaying();
+}
 
-    campaign.forEach((campaignLevel, index) => {
-      const locked = index + 1 > progress.unlocked;
-      const best = progress.best[index];
+function overlaps(first,second){
+  return (
+    first.x<second.x+second.width&&
+    first.x+first.width>second.x&&
+    first.y<second.y+second.height&&
+    first.y+first.height>second.y
+  );
+}
 
-      const button = document.createElement("button");
+function nearbySolids(){
+  const result=[];
 
-      button.className =
-        "level-card" + (locked ? " locked" : "");
+  const left=Math.max(0,Math.floor(player.x/TILE)-1);
+  const right=Math.min(COLS-1,Math.floor((player.x+player.width)/TILE)+1);
+  const top=Math.max(0,Math.floor(player.y/TILE)-1);
+  const bottom=Math.min(ROWS-1,Math.floor((player.y+player.height)/TILE)+1);
 
-      button.innerHTML = `
-        <div class="level-number">
-          ${locked ? "🔒" : index + 1}
-        </div>
+  for(let y=top;y<=bottom;y++){
+    for(let x=left;x<=right;x++){
+      const type=tileAt(x,y);
 
-        <h3>${campaignLevel.name}</h3>
-        <p>${descriptions[index]}</p>
-
-        <div class="level-score">
-          ${
-            best
-              ? `★ Best: ${best.coins}/${best.total} coins`
-              : "☆ Not completed"
-          }
-        </div>
-      `;
-
-      if (!locked) {
-        button.addEventListener("click", () => {
-          startCampaign(index);
+      if(solidTypes.has(type)){
+        result.push({
+          x:x*TILE,
+          y:y*TILE,
+          width:TILE,
+          height:TILE,
+          type
         });
       }
-
-      $("levelGrid").appendChild(button);
-    });
+    }
   }
 
-  function startCampaign(index) {
-    campaignIndex = index;
-    level = clone(campaign[index]);
+  return result;
+}
 
-    screenMode = "campaign";
+function movePlayerX(amount){
+  player.x+=amount;
 
-    hideMenuScreens();
-    setEditorLayout(false);
-    setEditorButtons(false);
-
-    $("restartBtn").classList.remove("hidden");
-    $("hud").classList.remove("hidden");
-
-    $("modeBadge").textContent =
-      `LEVEL ${index + 1}: ${level.name.toUpperCase()}`;
-
-    $("statusText").textContent =
-      `Campaign level ${index + 1} of ${campaign.length}`;
-
-    startPlay();
-    queueCanvasResize();
-  }
-
-  function createDefaultEditorLevel() {
-    const createdLevel = blankLevel();
-
-    for (let x = 0; x < COLS; x++) {
-      createdLevel.tiles[`${x},22`] = "ground";
-      createdLevel.tiles[`${x},23`] = "ground";
+  for(const tile of nearbySolids()){
+    if(!overlaps(player,tile)){
+      continue;
     }
 
-    createdLevel.tiles["2,21"] = "spawn";
-    createdLevel.tiles["55,21"] = "goal";
-    createdLevel.tiles["10,18"] = "brick";
-    createdLevel.tiles["11,18"] = "brick";
-    createdLevel.tiles["12,18"] = "brick";
-    createdLevel.tiles["11,17"] = "coin";
-
-    return createdLevel;
-  }
-
-  function openEditor() {
-    screenMode = "editor";
-    gameMode = "edit";
-
-    hideMenuScreens();
-    setEditorLayout(true);
-    setEditorButtons(true);
-
-    $("restartBtn").classList.add("hidden");
-    $("hud").classList.add("hidden");
-    $("modeBadge").textContent = "LEVEL EDITOR";
-
-    if (!editorLevel) {
-      editorLevel = createDefaultEditorLevel();
+    if(amount>0){
+      player.x=tile.x-player.width;
+    }else if(amount<0){
+      player.x=tile.x+tile.width;
     }
 
-    level = editorLevel;
-
-    camera = {
-      x: 0,
-      y: Math.max(0, WORLD_HEIGHT - canvasSize().height)
-    };
-
-    syncEditor();
-
-    $("statusText").textContent =
-      "Click and drag to place tiles · Right-click to erase";
-
-    queueCanvasResize();
+    player.vx=0;
   }
 
-  function syncEditor() {
-    $("nameInput").value = level.name;
-    $("bgSelect").value = level.background;
-    $("gravityInput").value = level.gravity;
+  player.x=Math.max(0,Math.min(WORLD_WIDTH-player.width,player.x));
+}
 
-    $("gravityLabel").textContent =
-      Number(level.gravity).toFixed(2);
-  }
+function movePlayerY(amount){
+  player.grounded=false;
+  player.y+=amount;
 
-  function startPlay() {
-    gameMode = "play";
-    playBackup = clone(level);
-
-    const spawn = findTile("spawn") || {
-      x: 2,
-      y: 20
-    };
-
-    player = createPlayer();
-
-    player.x = spawn.x * TILE + 5;
-    player.y =
-      spawn.y * TILE +
-      TILE -
-      player.height;
-
-    player.spawnX = player.x;
-    player.spawnY = player.y;
-
-    totalCoins = Object.values(level.tiles).filter(
-      value => value === "coin"
-    ).length;
-
-    collectedCoins = 0;
-    deaths = 0;
-    particles = [];
-
-    $("coinHud").textContent = `0 / ${totalCoins}`;
-    $("deathHud").textContent = "0";
-    $("hud").classList.remove("hidden");
-
-    if (screenMode === "editor") {
-      setEditorLayout(false);
-
-      $("testBtn").textContent = "■ Stop Testing";
-      $("modeBadge").textContent = "CUSTOM LEVEL TEST";
+  for(const tile of nearbySolids()){
+    if(!overlaps(player,tile)){
+      continue;
     }
 
-    focusCamera(true);
-    queueCanvasResize();
-    canvas.focus();
-  }
+    if(amount>0){
+      player.y=tile.y-player.height;
+      player.vy=0;
+      player.grounded=true;
 
-  function stopEditorTest() {
-    level = clone(playBackup);
-    editorLevel = level;
-    gameMode = "edit";
+      if(tile.type==="bounce"){
+        player.vy=-16.8;
+        player.grounded=false;
 
-    $("testBtn").textContent = "▶ Test Level";
-    $("hud").classList.add("hidden");
-    $("modeBadge").textContent = "LEVEL EDITOR";
-
-    setEditorLayout(true);
-    syncEditor();
-  }
-
-  function restartLevel() {
-    if (gameMode !== "play") {
-      return;
-    }
-
-    level = clone(playBackup);
-    startPlay();
-  }
-
-  function overlaps(first, second) {
-    return (
-      first.x < second.x + second.width &&
-      first.x + first.width > second.x &&
-      first.y < second.y + second.height &&
-      first.y + first.height > second.y
-    );
-  }
-
-  function nearbySolidTiles() {
-    const nearbyTiles = [];
-
-    const left = Math.max(
-      0,
-      Math.floor(player.x / TILE) - 1
-    );
-
-    const right = Math.min(
-      COLS - 1,
-      Math.floor((player.x + player.width) / TILE) + 1
-    );
-
-    const top = Math.max(
-      0,
-      Math.floor(player.y / TILE) - 1
-    );
-
-    const bottom = Math.min(
-      ROWS - 1,
-      Math.floor((player.y + player.height) / TILE) + 1
-    );
-
-    for (let y = top; y <= bottom; y++) {
-      for (let x = left; x <= right; x++) {
-        const type = tileAt(x, y);
-
-        if (solids.has(type)) {
-          nearbyTiles.push({
-            x: x * TILE,
-            y: y * TILE,
-            width: TILE,
-            height: TILE,
-            type
-          });
-        }
+        createParticles(
+          player.x+player.width/2,
+          tile.y,
+          "#34d399",
+          12
+        );
       }
+
+      if(tile.type==="ice"){
+        /* Small increase keeps ice slippery without becoming uncontrollable. */
+        player.vx*=1.006;
+      }
+    }else if(amount<0){
+      player.y=tile.y+tile.height;
+      player.vy=0;
     }
-
-    return nearbyTiles;
   }
+}
 
-  function movePlayerX(amount) {
-    player.x += amount;
+function checkSpecialTiles(){
+  const left=Math.max(0,Math.floor(player.x/TILE)-1);
+  const right=Math.min(COLS-1,Math.floor((player.x+player.width)/TILE)+1);
+  const top=Math.max(0,Math.floor(player.y/TILE)-1);
+  const bottom=Math.min(ROWS-1,Math.floor((player.y+player.height)/TILE)+1);
 
-    for (const tile of nearbySolidTiles()) {
-      if (!overlaps(player, tile)) {
+  for(let y=top;y<=bottom;y++){
+    for(let x=left;x<=right;x++){
+      const type=tileAt(x,y);
+
+      if(!type){
         continue;
       }
 
-      if (amount > 0) {
-        player.x = tile.x - player.width;
-      } else if (amount < 0) {
-        player.x = tile.x + tile.width;
-      }
+      const tileRect={
+        x:x*TILE+3,
+        y:y*TILE+3,
+        width:TILE-6,
+        height:TILE-6
+      };
 
-      player.vx = 0;
-    }
-
-    player.x = Math.max(
-      0,
-      Math.min(WORLD_WIDTH - player.width, player.x)
-    );
-  }
-
-  function movePlayerY(amount) {
-    player.grounded = false;
-    player.y += amount;
-
-    for (const tile of nearbySolidTiles()) {
-      if (!overlaps(player, tile)) {
+      if(!overlaps(player,tileRect)){
         continue;
       }
 
-      if (amount > 0) {
-        player.y = tile.y - player.height;
-        player.vy = 0;
-        player.grounded = true;
-
-        if (tile.type === "bounce") {
-          player.vy = -16;
-          player.grounded = false;
-
-          createParticles(
-            player.x + player.width / 2,
-            tile.y,
-            "#34d399",
-            12
-          );
-        }
-
-        if (tile.type === "ice") {
-          player.vx *= 1.018;
-        }
-      } else if (amount < 0) {
-        player.y = tile.y + tile.height;
-        player.vy = 0;
-      }
-    }
-  }
-
-  function checkSpecialTiles() {
-    const left = Math.max(
-      0,
-      Math.floor(player.x / TILE) - 1
-    );
-
-    const right = Math.min(
-      COLS - 1,
-      Math.floor((player.x + player.width) / TILE) + 1
-    );
-
-    const top = Math.max(
-      0,
-      Math.floor(player.y / TILE) - 1
-    );
-
-    const bottom = Math.min(
-      ROWS - 1,
-      Math.floor((player.y + player.height) / TILE) + 1
-    );
-
-    for (let y = top; y <= bottom; y++) {
-      for (let x = left; x <= right; x++) {
-        const type = tileAt(x, y);
-
-        if (!type) {
-          continue;
-        }
-
-        const tileRectangle = {
-          x: x * TILE + 3,
-          y: y * TILE + 3,
-          width: TILE - 6,
-          height: TILE - 6
-        };
-
-        if (!overlaps(player, tileRectangle)) {
-          continue;
-        }
-
-        if (type === "spike") {
-          killPlayer();
-          return;
-        }
-
-        if (type === "coin") {
-          delete level.tiles[`${x},${y}`];
-
-          collectedCoins++;
-
-          $("coinHud").textContent =
-            `${collectedCoins} / ${totalCoins}`;
-
-          createParticles(
-            x * TILE + TILE / 2,
-            y * TILE + TILE / 2,
-            "#fbbf24",
-            13
-          );
-        }
-
-        if (type === "checkpoint") {
-          const newSpawnX = x * TILE + 5;
-
-          const newSpawnY =
-            y * TILE +
-            TILE -
-            player.height;
-
-          if (
-            player.spawnX !== newSpawnX ||
-            player.spawnY !== newSpawnY
-          ) {
-            player.spawnX = newSpawnX;
-            player.spawnY = newSpawnY;
-
-            toast("Checkpoint activated");
-
-            createParticles(
-              x * TILE + TILE / 2,
-              y * TILE + TILE / 2,
-              "#38bdf8",
-              18
-            );
-          }
-        }
-
-        if (type === "goal") {
-          completeLevel();
-        }
-      }
-    }
-  }
-
-  function killPlayer() {
-    if (player.won) {
-      return;
-    }
-
-    deaths++;
-
-    $("deathHud").textContent = deaths;
-
-    createParticles(
-      player.x + player.width / 2,
-      player.y + player.height / 2,
-      "#fb7185",
-      18
-    );
-
-    player.x = player.spawnX;
-    player.y = player.spawnY;
-    player.vx = 0;
-    player.vy = 0;
-  }
-
-  function completeLevel() {
-    if (player.won) {
-      return;
-    }
-
-    player.won = true;
-    player.vx = 0;
-    player.vy = 0;
-
-    createParticles(
-      player.x + player.width / 2,
-      player.y + player.height / 2,
-      "#fbbf24",
-      45
-    );
-
-    if (screenMode === "campaign") {
-      const previousBest = progress.best[campaignIndex];
-
-      if (
-        !previousBest ||
-        collectedCoins > previousBest.coins
-      ) {
-        progress.best[campaignIndex] = {
-          coins: collectedCoins,
-          total: totalCoins
-        };
-      }
-
-      progress.unlocked = Math.max(
-        progress.unlocked,
-        Math.min(
-          campaign.length,
-          campaignIndex + 2
-        )
-      );
-
-      saveProgress();
-
-      $("winText").textContent =
-        collectedCoins === totalCoins
-          ? "Perfect run! You collected every coin."
-          : "You reached the goal and unlocked the next stage.";
-
-      $("winCoins").textContent =
-        `${collectedCoins} / ${totalCoins}`;
-
-      $("winDeaths").textContent = deaths;
-
-      $("winNext").classList.toggle(
-        "hidden",
-        campaignIndex >= campaign.length - 1
-      );
-
-      setTimeout(() => {
-        $("winModal").classList.remove("hidden");
-      }, 350);
-    } else {
-      toast(
-        `Custom level complete! ${collectedCoins}/${totalCoins} coins`
-      );
-    }
-  }
-
-  function updatePlayer(frameScale) {
-    if (
-      gameMode !== "play" ||
-      player.won
-    ) {
-      updateParticles(frameScale);
-      return;
-    }
-
-    const movingLeft =
-      keys.ArrowLeft ||
-      keys.KeyA;
-
-    const movingRight =
-      keys.ArrowRight ||
-      keys.KeyD;
-
-    const jumping =
-      keys.ArrowUp ||
-      keys.KeyW ||
-      keys.Space;
-
-    if (movingLeft) {
-      player.vx -= 0.72 * frameScale;
-      player.facing = -1;
-    }
-
-    if (movingRight) {
-      player.vx += 0.72 * frameScale;
-      player.facing = 1;
-    }
-
-    if (!movingLeft && !movingRight) {
-      player.vx *= Math.pow(
-        player.grounded ? 0.72 : 0.94,
-        frameScale
-      );
-    }
-
-    player.vx = Math.max(
-      -5.5,
-      Math.min(5.5, player.vx)
-    );
-
-    player.coyote = player.grounded
-      ? 7
-      : Math.max(0, player.coyote - frameScale);
-
-    if (jumping && !player.jumpHeld) {
-      player.buffer = 8;
-      player.jumpHeld = true;
-    }
-
-    if (!jumping) {
-      player.jumpHeld = false;
-
-      if (player.vy < -4) {
-        player.vy *= Math.pow(0.75, frameScale);
-      }
-    }
-
-    player.buffer = Math.max(
-      0,
-      player.buffer - frameScale
-    );
-
-    if (
-      player.buffer > 0 &&
-      player.coyote > 0
-    ) {
-      player.vy = -12.5;
-      player.buffer = 0;
-      player.coyote = 0;
-      player.grounded = false;
-    }
-
-    player.vy = Math.min(
-      17,
-      player.vy + level.gravity * frameScale
-    );
-
-    movePlayerX(player.vx * frameScale);
-    movePlayerY(player.vy * frameScale);
-    checkSpecialTiles();
-
-    if (player.y > WORLD_HEIGHT + 120) {
-      killPlayer();
-    }
-
-    updateParticles(frameScale);
-    focusCamera(false);
-  }
-
-  function focusCamera(immediate) {
-    const dimensions = canvasSize();
-
-    const targetX =
-      player.x +
-      player.width / 2 -
-      dimensions.width / 2;
-
-    const targetY =
-      player.y +
-      player.height / 2 -
-      dimensions.height / 2;
-
-    if (immediate) {
-      camera.x = targetX;
-      camera.y = targetY;
-    } else {
-      camera.x += (targetX - camera.x) * 0.09;
-      camera.y += (targetY - camera.y) * 0.09;
-    }
-
-    clampCamera();
-  }
-
-  function createParticles(x, y, color, count) {
-    for (let index = 0; index < count; index++) {
-      particles.push({
-        x,
-        y,
-        vx: (Math.random() - 0.5) * 7,
-        vy: (Math.random() - 0.9) * 7,
-        life: 35 + Math.random() * 30,
-        maximumLife: 65,
-        color,
-        size: 2 + Math.random() * 4
-      });
-    }
-  }
-
-  function updateParticles(frameScale) {
-    for (
-      let index = particles.length - 1;
-      index >= 0;
-      index--
-    ) {
-      const particle = particles[index];
-
-      particle.x += particle.vx * frameScale;
-      particle.y += particle.vy * frameScale;
-      particle.vy += 0.2 * frameScale;
-      particle.life -= frameScale;
-
-      if (particle.life <= 0) {
-        particles.splice(index, 1);
-      }
-    }
-  }
-
-  function drawBackground() {
-    const dimensions = canvasSize();
-
-    const palette =
-      palettes[level?.background || "night"];
-
-    const gradient = ctx.createLinearGradient(
-      0,
-      0,
-      0,
-      dimensions.height
-    );
-
-    gradient.addColorStop(0, palette[0]);
-    gradient.addColorStop(1, palette[1]);
-
-    ctx.fillStyle = gradient;
-
-    ctx.fillRect(
-      0,
-      0,
-      dimensions.width,
-      dimensions.height
-    );
-
-    ctx.globalAlpha = 0.55;
-
-    for (let index = 0; index < 55; index++) {
-      const x =
-        ((index * 193 - camera.x * 0.04) %
-          (dimensions.width + 80)) -
-        20;
-
-      const y =
-        (index * 83) %
-        Math.max(dimensions.height, 1);
-
-      ctx.fillStyle = "#ffffff";
-
-      ctx.beginPath();
-
-      ctx.arc(
-        x,
-        y,
-        index % 5 ? 1 : 1.8,
-        0,
-        Math.PI * 2
-      );
-
-      ctx.fill();
-    }
-
-    ctx.globalAlpha = 1;
-  }
-
-  function draw() {
-    const dimensions = canvasSize();
-
-    ctx.clearRect(
-      0,
-      0,
-      dimensions.width,
-      dimensions.height
-    );
-
-    drawBackground();
-
-    if (!level) {
-      return;
-    }
-
-    ctx.save();
-    ctx.translate(-camera.x, -camera.y);
-
-    for (let y = 0; y < ROWS; y++) {
-      for (let x = 0; x < COLS; x++) {
-        const type = tileAt(x, y);
-
-        if (type) {
-          drawTile(
-            type,
-            x * TILE,
-            y * TILE
-          );
-        }
-      }
-    }
-
-    if (
-      screenMode === "editor" &&
-      gameMode === "edit"
-    ) {
-      drawGrid();
-    }
-
-    if (gameMode === "play") {
-      drawPlayer();
-    }
-
-    for (const particle of particles) {
-      ctx.globalAlpha = Math.max(
-        0,
-        particle.life / particle.maximumLife
-      );
-
-      ctx.fillStyle = particle.color;
-
-      ctx.fillRect(
-        particle.x,
-        particle.y,
-        particle.size,
-        particle.size
-      );
-    }
-
-    ctx.globalAlpha = 1;
-    ctx.restore();
-  }
-
-  function drawGrid() {
-    ctx.strokeStyle = "rgba(255,255,255,.07)";
-    ctx.lineWidth = 1;
-
-    for (let x = 0; x <= WORLD_WIDTH; x += TILE) {
-      ctx.beginPath();
-      ctx.moveTo(x, 0);
-      ctx.lineTo(x, WORLD_HEIGHT);
-      ctx.stroke();
-    }
-
-    for (let y = 0; y <= WORLD_HEIGHT; y += TILE) {
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(WORLD_WIDTH, y);
-      ctx.stroke();
-    }
-  }
-
-  function drawTile(type, x, y) {
-    if (type === "ground") {
-      ctx.fillStyle = "#70452d";
-      ctx.fillRect(x, y, TILE, TILE);
-
-      ctx.fillStyle = "#9b663e";
-      ctx.fillRect(x + 3, y + 5, 26, 24);
-
-      ctx.fillStyle = "#4fd078";
-      ctx.fillRect(x, y, TILE, 8);
-
-      ctx.fillStyle = "#79e899";
-      ctx.fillRect(x, y, TILE, 3);
-      return;
-    }
-
-    if (type === "brick") {
-      ctx.fillStyle = "#99435d";
-      ctx.fillRect(x + 1, y + 1, 30, 30);
-
-      ctx.strokeStyle = "#54243a";
-      ctx.strokeRect(x + 1, y + 1, 30, 30);
-
-      ctx.beginPath();
-      ctx.moveTo(x, y + 16);
-      ctx.lineTo(x + 32, y + 16);
-      ctx.moveTo(x + 16, y);
-      ctx.lineTo(x + 16, y + 16);
-      ctx.moveTo(x + 8, y + 16);
-      ctx.lineTo(x + 8, y + 32);
-      ctx.moveTo(x + 25, y + 16);
-      ctx.lineTo(x + 25, y + 32);
-      ctx.stroke();
-      return;
-    }
-
-    if (type === "ice") {
-      const gradient = ctx.createLinearGradient(
-        x,
-        y,
-        x + 32,
-        y + 32
-      );
-
-      gradient.addColorStop(0, "#e1f9ff");
-      gradient.addColorStop(1, "#3b8cbd");
-
-      ctx.fillStyle = gradient;
-      ctx.fillRect(x + 1, y + 1, 30, 30);
-
-      ctx.strokeStyle = "#ffffff";
-      ctx.strokeRect(x + 3, y + 3, 26, 26);
-      return;
-    }
-
-    if (type === "spike") {
-      ctx.fillStyle = "#cbd5e1";
-
-      for (let index = 0; index < 3; index++) {
-        ctx.beginPath();
-
-        ctx.moveTo(
-          x + index * 11,
-          y + 31
-        );
-
-        ctx.lineTo(
-          x + index * 11 + 5.5,
-          y + 5
-        );
-
-        ctx.lineTo(
-          x + index * 11 + 11,
-          y + 31
-        );
-
-        ctx.fill();
-      }
-
-      return;
-    }
-
-    if (type === "coin") {
-      const bob =
-        gameMode === "play"
-          ? Math.sin(
-              performance.now() / 160 + x
-            ) * 3
-          : 0;
-
-      ctx.fillStyle = "#fbbf24";
-      ctx.shadowColor = "#ffc928";
-      ctx.shadowBlur = 12;
-
-      ctx.beginPath();
-
-      ctx.ellipse(
-        x + 16,
-        y + 16 + bob,
-        10,
-        13,
-        0,
-        0,
-        Math.PI * 2
-      );
-
-      ctx.fill();
-      ctx.shadowBlur = 0;
-      return;
-    }
-
-    if (type === "bounce") {
-      ctx.fillStyle = "#1f6b52";
-      ctx.fillRect(x + 1, y + 8, 30, 23);
-
-      ctx.fillStyle = "#34d399";
-      ctx.fillRect(x + 1, y + 5, 30, 9);
-
-      ctx.fillStyle = "#d1fae5";
-      ctx.font = "bold 20px system-ui";
-      ctx.fillText("↑", x + 9, y + 29);
-      return;
-    }
-
-    if (type === "checkpoint") {
-      ctx.fillStyle = "#38bdf8";
-
-      ctx.beginPath();
-      ctx.moveTo(x + 16, y + 3);
-      ctx.lineTo(x + 28, y + 16);
-      ctx.lineTo(x + 16, y + 29);
-      ctx.lineTo(x + 4, y + 16);
-      ctx.closePath();
-      ctx.fill();
-      return;
-    }
-
-    if (type === "goal") {
-      ctx.strokeStyle = "#eeeeee";
-      ctx.lineWidth = 3;
-
-      ctx.beginPath();
-      ctx.moveTo(x + 7, y + 30);
-      ctx.lineTo(x + 7, y + 3);
-      ctx.stroke();
-
-      ctx.fillStyle = "#fb7185";
-
-      ctx.beginPath();
-      ctx.moveTo(x + 9, y + 5);
-      ctx.lineTo(x + 29, y + 10);
-      ctx.lineTo(x + 9, y + 17);
-      ctx.closePath();
-      ctx.fill();
-      return;
-    }
-
-    if (
-      type === "spawn" &&
-      gameMode === "edit"
-    ) {
-      ctx.strokeStyle = "#a78bfa";
-      ctx.lineWidth = 2;
-      ctx.strokeRect(x + 3, y + 3, 26, 26);
-
-      ctx.fillStyle = "rgba(167,139,250,.33)";
-      ctx.fillRect(x + 4, y + 4, 24, 24);
-    }
-  }
-
-  function drawPlayer() {
-    ctx.save();
-
-    if (player.facing < 0) {
-      ctx.translate(
-        player.x + player.width,
-        0
-      );
-
-      ctx.scale(-1, 1);
-    } else {
-      ctx.translate(player.x, 0);
-    }
-
-    const x = 0;
-    const y = player.y;
-
-    ctx.fillStyle = "#a78bfa";
-    ctx.fillRect(x + 3, y + 5, 16, 20);
-
-    ctx.fillStyle = "#dccfff";
-    ctx.fillRect(x + 5, y + 1, 12, 10);
-
-    ctx.fillStyle = "#111827";
-    ctx.fillRect(x + 14, y + 5, 3, 3);
-
-    ctx.fillStyle = "#6d3ed5";
-    ctx.fillRect(x + 1, y + 20, 7, 8);
-    ctx.fillRect(x + 14, y + 20, 7, 8);
-
-    ctx.restore();
-  }
-
-  function gameLoop(now) {
-    const frameScale =
-      Math.min(35, now - lastTime) /
-      (1000 / 60);
-
-    lastTime = now;
-
-    updatePlayer(frameScale);
-    draw();
-
-    requestAnimationFrame(gameLoop);
-  }
-
-  function validateLevel(value) {
-    if (
-      !value ||
-      typeof value !== "object" ||
-      !value.tiles
-    ) {
-      throw new Error("Invalid level");
-    }
-
-    const validatedLevel = blankLevel(
-      String(
-        value.name || "Imported Level"
-      ).slice(0, 40),
-      palettes[value.background]
-        ? value.background
-        : "night",
-      Math.max(
-        0.3,
-        Math.min(
-          1.2,
-          Number(value.gravity) || 0.7
-        )
-      )
-    );
-
-    for (
-      const [key, type] of Object.entries(value.tiles)
-    ) {
-      const [x, y] = key.split(",").map(Number);
-
-      if (
-        Number.isInteger(x) &&
-        Number.isInteger(y) &&
-        x >= 0 &&
-        x < COLS &&
-        y >= 0 &&
-        y < ROWS &&
-        allowedTiles.has(type)
-      ) {
-        validatedLevel.tiles[key] = type;
-      }
-    }
-
-    return validatedLevel;
-  }
-
-  function toast(message) {
-    const oldToast =
-      document.querySelector(".toast");
-
-    if (oldToast) {
-      oldToast.remove();
-    }
-
-    const element =
-      document.createElement("div");
-
-    element.className = "toast";
-    element.textContent = message;
-
-    document.body.appendChild(element);
-
-    setTimeout(() => {
-      element.remove();
-    }, 2200);
-  }
-
-  function pointerTile(event) {
-    const rectangle =
-      canvas.getBoundingClientRect();
-
-    return {
-      x: Math.floor(
-        (
-          event.clientX -
-          rectangle.left +
-          camera.x
-        ) / TILE
-      ),
-
-      y: Math.floor(
-        (
-          event.clientY -
-          rectangle.top +
-          camera.y
-        ) / TILE
-      )
-    };
-  }
-
-  function paintTile(event, erase = false) {
-    if (
-      screenMode !== "editor" ||
-      gameMode !== "edit"
-    ) {
-      return;
-    }
-
-    const position = pointerTile(event);
-    const key = `${position.x},${position.y}`;
-
-    if (
-      key === lastPaintedCell ||
-      position.x < 0 ||
-      position.x >= COLS ||
-      position.y < 0 ||
-      position.y >= ROWS
-    ) {
-      return;
-    }
-
-    lastPaintedCell = key;
-
-    const activeTool =
-      erase ? "erase" : selectedTool;
-
-    if (
-      activeTool === "spawn" ||
-      activeTool === "goal"
-    ) {
-      for (
-        const existingKey of Object.keys(level.tiles)
-      ) {
-        if (
-          level.tiles[existingKey] === activeTool
-        ) {
-          delete level.tiles[existingKey];
-        }
-      }
-    }
-
-    if (activeTool === "erase") {
-      delete level.tiles[key];
-    } else {
-      level.tiles[key] = activeTool;
-    }
-
-    editorLevel = level;
-  }
-
-  $("homeBtn").addEventListener("click", goHome);
-  $("levelsBtn").addEventListener("click", showLevels);
-  $("campaignBtn").addEventListener("click", showLevels);
-  $("editorBtn").addEventListener("click", openEditor);
-  $("levelBackBtn").addEventListener("click", goHome);
-  $("restartBtn").addEventListener("click", restartLevel);
-
-  $("testBtn").addEventListener("click", () => {
-    if (gameMode === "play") {
-      stopEditorTest();
-    } else {
-      editorLevel = level;
-      startPlay();
-    }
-  });
-
-  $("saveBtn").addEventListener("click", () => {
-    editorLevel = level;
-
-    localStorage.setItem(
-      "pixelForgeCustom",
-      JSON.stringify(level)
-    );
-
-    toast("Custom level saved");
-  });
-
-  $("loadBtn").addEventListener("click", () => {
-    try {
-      const saved =
-        localStorage.getItem("pixelForgeCustom");
-
-      if (!saved) {
-        toast("No custom level has been saved");
+      if(type==="spike"){
+        killPlayer();
         return;
       }
 
-      level = validateLevel(JSON.parse(saved));
-      editorLevel = level;
+      if(type==="coin"){
+        delete level.tiles[`${x},${y}`];
+        collectedCoins++;
 
-      syncEditor();
-      toast("Custom level loaded");
-    } catch (error) {
-      toast("Saved level is invalid");
-    }
-  });
+        $("coinHud").textContent=
+          `${collectedCoins} / ${totalCoins}`;
 
-  $("clearBtn").addEventListener("click", () => {
-    if (
-      confirm("Clear the entire custom level?")
-    ) {
-      level.tiles = {};
-      editorLevel = level;
-    }
-  });
-
-  $("exportBtn").addEventListener("click", () => {
-    importMode = false;
-
-    $("dataTitle").textContent = "Export Level";
-
-    $("dataDescription").textContent =
-      "Copy this JSON to share or back up your custom level.";
-
-    $("dataArea").value =
-      JSON.stringify(level, null, 2);
-
-    $("dataConfirm").textContent = "Copy";
-
-    $("dataModal").classList.remove("hidden");
-  });
-
-  $("importBtn").addEventListener("click", () => {
-    importMode = true;
-
-    $("dataTitle").textContent = "Import Level";
-
-    $("dataDescription").textContent =
-      "Paste exported Pixel Forge JSON below.";
-
-    $("dataArea").value = "";
-    $("dataConfirm").textContent = "Import";
-
-    $("dataModal").classList.remove("hidden");
-  });
-
-  $("dataCancel").addEventListener("click", () => {
-    $("dataModal").classList.add("hidden");
-  });
-
-  $("dataConfirm").addEventListener("click", async () => {
-    if (importMode) {
-      try {
-        level = validateLevel(
-          JSON.parse($("dataArea").value)
+        createParticles(
+          x*TILE+TILE/2,
+          y*TILE+TILE/2,
+          "#fbbf24",
+          13
         );
-
-        editorLevel = level;
-        syncEditor();
-
-        $("dataModal").classList.add("hidden");
-        toast("Level imported");
-      } catch (error) {
-        toast("Invalid level data");
       }
 
-      return;
+      if(type==="checkpoint"){
+        const newSpawnX=x*TILE+5;
+        const newSpawnY=y*TILE+TILE-player.height;
+
+        if(
+          player.spawnX!==newSpawnX||
+          player.spawnY!==newSpawnY
+        ){
+          player.spawnX=newSpawnX;
+          player.spawnY=newSpawnY;
+
+          toast("Checkpoint activated");
+
+          createParticles(
+            x*TILE+TILE/2,
+            y*TILE+TILE/2,
+            "#38bdf8",
+            18
+          );
+        }
+      }
+
+      if(type==="goal"){
+        completeLevel();
+      }
     }
+  }
+}
 
-    try {
-      await navigator.clipboard.writeText(
-        $("dataArea").value
-      );
+function killPlayer(){
+  if(player.won){
+    return;
+  }
 
-      toast("Level copied");
-    } catch (error) {
-      $("dataArea").select();
-      document.execCommand("copy");
-      toast("Level copied");
-    }
+  deaths++;
+  $("deathHud").textContent=deaths;
 
-    $("dataModal").classList.add("hidden");
-  });
+  createParticles(
+    player.x+player.width/2,
+    player.y+player.height/2,
+    "#fb7185",
+    18
+  );
 
-  $("resetProgressBtn").addEventListener("click", () => {
-    if (
-      confirm(
-        "Reset all campaign unlocks and best scores?"
-      )
-    ) {
-      progress = {
-        unlocked: 1,
-        best: {}
+  player.x=player.spawnX;
+  player.y=player.spawnY;
+  player.vx=0;
+  player.vy=0;
+}
+
+function completeLevel(){
+  if(player.won){
+    return;
+  }
+
+  player.won=true;
+  player.vx=0;
+  player.vy=0;
+
+  createParticles(
+    player.x+player.width/2,
+    player.y+player.height/2,
+    "#fbbf24",
+    45
+  );
+
+  if(screenMode==="campaign"){
+    const previous=progress.best[campaignIndex];
+
+    if(!previous||collectedCoins>previous.coins){
+      progress.best[campaignIndex]={
+        coins:collectedCoins,
+        total:totalCoins
       };
-
-      saveProgress();
-      renderLevels();
-      toast("Campaign progress reset");
-    }
-  });
-
-  $("winLevels").addEventListener("click", () => {
-    $("winModal").classList.add("hidden");
-    showLevels();
-  });
-
-  $("winReplay").addEventListener("click", () => {
-    $("winModal").classList.add("hidden");
-    startCampaign(campaignIndex);
-  });
-
-  $("winNext").addEventListener("click", () => {
-    $("winModal").classList.add("hidden");
-
-    if (campaignIndex < campaign.length - 1) {
-      startCampaign(campaignIndex + 1);
-    }
-  });
-
-  $("tools").addEventListener("click", event => {
-    const button = event.target.closest(".tool");
-
-    if (!button) {
-      return;
     }
 
-    selectedTool = button.dataset.tool;
-
-    document
-      .querySelectorAll(".tool")
-      .forEach(toolButton => {
-        toolButton.classList.toggle(
-          "selected",
-          toolButton === button
-        );
-      });
-  });
-
-  $("nameInput").addEventListener("input", event => {
-    level.name = event.target.value;
-  });
-
-  $("bgSelect").addEventListener("change", event => {
-    level.background = event.target.value;
-  });
-
-  $("gravityInput").addEventListener("input", event => {
-    level.gravity = Number(event.target.value);
-
-    $("gravityLabel").textContent =
-      level.gravity.toFixed(2);
-  });
-
-  canvas.addEventListener("contextmenu", event => {
-    event.preventDefault();
-  });
-
-  canvas.addEventListener("pointerdown", event => {
-    canvas.focus();
-
-    mouseDown = true;
-    lastPaintedCell = "";
-
-    paintTile(
-      event,
-      event.button === 2
+    progress.unlocked=Math.max(
+      progress.unlocked,
+      Math.min(campaign.length,campaignIndex+2)
     );
 
-    try {
-      canvas.setPointerCapture(event.pointerId);
-    } catch (error) {
-      // Pointer capture is not required.
-    }
-  });
+    saveProgress();
 
-  canvas.addEventListener("pointermove", event => {
-    if (!mouseDown) {
-      return;
-    }
+    $("winText").textContent=
+      collectedCoins===totalCoins
+        ?"Perfect run! You collected every coin."
+        :"You completed the level and unlocked the next stage.";
 
-    paintTile(
-      event,
-      event.buttons === 2
+    $("winCoins").textContent=`${collectedCoins} / ${totalCoins}`;
+    $("winDeaths").textContent=deaths;
+
+    $("winNext").classList.toggle(
+      "hidden",
+      campaignIndex>=campaign.length-1
     );
-  });
 
-  canvas.addEventListener("pointerup", event => {
-    mouseDown = false;
-    lastPaintedCell = "";
+    setTimeout(()=>$("winModal").classList.remove("hidden"),300);
+  }else{
+    toast(`Custom level complete! ${collectedCoins}/${totalCoins} coins`);
+  }
+}
 
-    try {
-      canvas.releasePointerCapture(event.pointerId);
-    } catch (error) {
-      // Pointer capture may already be released.
+function updatePlayer(frameScale){
+  updateParticles(frameScale);
+
+  if(gameMode!=="play"||player.won){
+    return;
+  }
+
+  const left=keys.ArrowLeft||keys.KeyA;
+  const right=keys.ArrowRight||keys.KeyD;
+  const jump=keys.ArrowUp||keys.KeyW||keys.Space;
+
+  if(left){
+    player.vx-=.76*frameScale;
+    player.facing=-1;
+  }
+
+  if(right){
+    player.vx+=.76*frameScale;
+    player.facing=1;
+  }
+
+  if(!left&&!right){
+    player.vx*=Math.pow(player.grounded?.74:.945,frameScale);
+  }
+
+  /* Slightly faster maximum speed makes longer jumps more forgiving. */
+  player.vx=Math.max(-6,Math.min(6,player.vx));
+
+  /* Ten frames of coyote time permits a late jump after leaving an edge. */
+  player.coyote=player.grounded
+    ?10
+    :Math.max(0,player.coyote-frameScale);
+
+  if(jump&&!player.jumpHeld){
+    player.jumpBuffer=10;
+    player.jumpHeld=true;
+  }
+
+  if(!jump){
+    player.jumpHeld=false;
+
+    if(player.vy<-4){
+      player.vy*=Math.pow(.76,frameScale);
     }
-  });
+  }
 
-  window.addEventListener("keydown", event => {
-    keys[event.code] = true;
+  player.jumpBuffer=Math.max(0,player.jumpBuffer-frameScale);
 
-    if (
-      gameMode === "play" &&
-      [
-        "ArrowLeft",
-        "ArrowRight",
-        "ArrowUp",
-        "Space"
-      ].includes(event.code)
-    ) {
-      event.preventDefault();
+  if(player.jumpBuffer>0&&player.coyote>0){
+    player.vy=-13.2;
+    player.jumpBuffer=0;
+    player.coyote=0;
+    player.grounded=false;
+  }
+
+  player.vy=Math.min(
+    17,
+    player.vy+level.gravity*frameScale
+  );
+
+  movePlayerX(player.vx*frameScale);
+  movePlayerY(player.vy*frameScale);
+  checkSpecialTiles();
+
+  if(player.y>WORLD_HEIGHT+120){
+    killPlayer();
+  }
+
+  focusCamera(false);
+}
+
+function focusCamera(immediate){
+  const size=canvasSize();
+
+  const targetX=
+    player.x+player.width/2-size.width/2;
+
+  const targetY=
+    player.y+player.height/2-size.height/2;
+
+  if(immediate){
+    camera.x=targetX;
+    camera.y=targetY;
+  }else{
+    camera.x+=(targetX-camera.x)*.09;
+    camera.y+=(targetY-camera.y)*.09;
+  }
+
+  clampCamera();
+}
+
+function createParticles(x,y,color,count){
+  for(let i=0;i<count;i++){
+    particles.push({
+      x,
+      y,
+      vx:(Math.random()-.5)*7,
+      vy:(Math.random()-.9)*7,
+      life:35+Math.random()*30,
+      maximumLife:65,
+      color,
+      size:2+Math.random()*4
+    });
+  }
+}
+
+function updateParticles(frameScale){
+  for(let i=particles.length-1;i>=0;i--){
+    const particle=particles[i];
+
+    particle.x+=particle.vx*frameScale;
+    particle.y+=particle.vy*frameScale;
+    particle.vy+=.2*frameScale;
+    particle.life-=frameScale;
+
+    if(particle.life<=0){
+      particles.splice(i,1);
+    }
+  }
+}
+
+function drawBackground(){
+  const size=canvasSize();
+  const palette=backgrounds[level?.background||"night"];
+  const gradient=ctx.createLinearGradient(0,0,0,size.height);
+
+  gradient.addColorStop(0,palette[0]);
+  gradient.addColorStop(1,palette[1]);
+
+  ctx.fillStyle=gradient;
+  ctx.fillRect(0,0,size.width,size.height);
+
+  ctx.globalAlpha=.55;
+
+  for(let i=0;i<60;i++){
+    let starX=
+      ((i*193-camera.x*.04)%(size.width+80))-20;
+
+    if(starX<0){
+      starX+=size.width+80;
     }
 
-    if (
-      gameMode === "play" &&
-      event.code === "KeyR"
-    ) {
-      restartLevel();
+    const starY=(i*83)%Math.max(size.height,1);
+
+    ctx.fillStyle="#fff";
+    ctx.beginPath();
+    ctx.arc(starX,starY,i%5?1:1.8,0,Math.PI*2);
+    ctx.fill();
+  }
+
+  ctx.globalAlpha=1;
+}
+
+function drawGrid(){
+  ctx.strokeStyle="#ffffff12";
+  ctx.lineWidth=1;
+
+  for(let x=0;x<=WORLD_WIDTH;x+=TILE){
+    ctx.beginPath();
+    ctx.moveTo(x,0);
+    ctx.lineTo(x,WORLD_HEIGHT);
+    ctx.stroke();
+  }
+
+  for(let y=0;y<=WORLD_HEIGHT;y+=TILE){
+    ctx.beginPath();
+    ctx.moveTo(0,y);
+    ctx.lineTo(WORLD_WIDTH,y);
+    ctx.stroke();
+  }
+}
+
+function drawTile(type,x,y){
+  if(type==="ground"){
+    ctx.fillStyle="#70452d";
+    ctx.fillRect(x,y,32,32);
+
+    ctx.fillStyle="#9b663e";
+    ctx.fillRect(x+3,y+5,26,24);
+
+    ctx.fillStyle="#4fd078";
+    ctx.fillRect(x,y,32,8);
+
+    ctx.fillStyle="#79e899";
+    ctx.fillRect(x,y,32,3);
+    return;
+  }
+
+  if(type==="brick"){
+    ctx.fillStyle="#99435d";
+    ctx.fillRect(x+1,y+1,30,30);
+
+    ctx.strokeStyle="#54243a";
+    ctx.strokeRect(x+1,y+1,30,30);
+
+    ctx.beginPath();
+    ctx.moveTo(x,y+16);
+    ctx.lineTo(x+32,y+16);
+    ctx.moveTo(x+16,y);
+    ctx.lineTo(x+16,y+16);
+    ctx.moveTo(x+8,y+16);
+    ctx.lineTo(x+8,y+32);
+    ctx.moveTo(x+25,y+16);
+    ctx.lineTo(x+25,y+32);
+    ctx.stroke();
+    return;
+  }
+
+  if(type==="ice"){
+    const gradient=ctx.createLinearGradient(x,y,x+32,y+32);
+
+    gradient.addColorStop(0,"#e1f9ff");
+    gradient.addColorStop(1,"#3b8cbd");
+
+    ctx.fillStyle=gradient;
+    ctx.fillRect(x+1,y+1,30,30);
+
+    ctx.strokeStyle="#ffffff";
+    ctx.strokeRect(x+3,y+3,26,26);
+    return;
+  }
+
+  if(type==="spike"){
+    ctx.fillStyle="#cbd5e1";
+
+    for(let i=0;i<3;i++){
+      ctx.beginPath();
+      ctx.moveTo(x+i*11,y+31);
+      ctx.lineTo(x+i*11+5.5,y+5);
+      ctx.lineTo(x+i*11+11,y+31);
+      ctx.closePath();
+      ctx.fill();
     }
 
-    if (
-      screenMode === "editor" &&
-      gameMode === "play" &&
-      event.code === "Escape"
-    ) {
-      stopEditorTest();
+    return;
+  }
+
+  if(type==="coin"){
+    const bob=
+      gameMode==="play"
+        ?Math.sin(performance.now()/160+x*.1)*3
+        :0;
+
+    ctx.fillStyle="#fbbf24";
+    ctx.shadowColor="#ffc928";
+    ctx.shadowBlur=12;
+
+    ctx.beginPath();
+    ctx.ellipse(
+      x+16,
+      y+16+bob,
+      10,
+      13,
+      0,
+      0,
+      Math.PI*2
+    );
+    ctx.fill();
+
+    ctx.shadowBlur=0;
+    return;
+  }
+
+  if(type==="bounce"){
+    ctx.fillStyle="#1f6b52";
+    ctx.fillRect(x+1,y+8,30,23);
+
+    ctx.fillStyle="#34d399";
+    ctx.fillRect(x+1,y+5,30,9);
+
+    ctx.fillStyle="#d1fae5";
+    ctx.font="bold 20px system-ui";
+    ctx.fillText("↑",x+9,y+29);
+    return;
+  }
+
+  if(type==="checkpoint"){
+    ctx.fillStyle="#38bdf8";
+
+    ctx.beginPath();
+    ctx.moveTo(x+16,y+3);
+    ctx.lineTo(x+28,y+16);
+    ctx.lineTo(x+16,y+29);
+    ctx.lineTo(x+4,y+16);
+    ctx.closePath();
+    ctx.fill();
+    return;
+  }
+
+  if(type==="goal"){
+    ctx.strokeStyle="#eee";
+    ctx.lineWidth=3;
+
+    ctx.beginPath();
+    ctx.moveTo(x+7,y+30);
+    ctx.lineTo(x+7,y+3);
+    ctx.stroke();
+
+    ctx.fillStyle="#fb7185";
+
+    ctx.beginPath();
+    ctx.moveTo(x+9,y+5);
+    ctx.lineTo(x+29,y+10);
+    ctx.lineTo(x+9,y+17);
+    ctx.closePath();
+    ctx.fill();
+    return;
+  }
+
+  if(type==="spawn"&&gameMode==="edit"){
+    ctx.strokeStyle="#a78bfa";
+    ctx.lineWidth=2;
+    ctx.strokeRect(x+3,y+3,26,26);
+
+    ctx.fillStyle="#a78bfa55";
+    ctx.fillRect(x+4,y+4,24,24);
+  }
+}
+
+function drawPlayer(){
+  ctx.save();
+
+  if(player.facing<0){
+    ctx.translate(player.x+player.width,0);
+    ctx.scale(-1,1);
+  }else{
+    ctx.translate(player.x,0);
+  }
+
+  const y=player.y;
+
+  ctx.fillStyle="#a78bfa";
+  ctx.fillRect(3,y+5,16,20);
+
+  ctx.fillStyle="#dccfff";
+  ctx.fillRect(5,y+1,12,10);
+
+  ctx.fillStyle="#111827";
+  ctx.fillRect(14,y+5,3,3);
+
+  ctx.fillStyle="#6d3ed5";
+  ctx.fillRect(1,y+20,7,8);
+  ctx.fillRect(14,y+20,7,8);
+
+  ctx.restore();
+}
+
+function draw(){
+  const size=canvasSize();
+
+  ctx.clearRect(0,0,size.width,size.height);
+  drawBackground();
+
+  if(!level){
+    return;
+  }
+
+  ctx.save();
+  ctx.translate(-camera.x,-camera.y);
+
+  const startX=Math.max(0,Math.floor(camera.x/TILE)-1);
+  const endX=Math.min(
+    COLS-1,
+    Math.ceil((camera.x+size.width)/TILE)+1
+  );
+
+  const startY=Math.max(0,Math.floor(camera.y/TILE)-1);
+  const endY=Math.min(
+    ROWS-1,
+    Math.ceil((camera.y+size.height)/TILE)+1
+  );
+
+  for(let y=startY;y<=endY;y++){
+    for(let x=startX;x<=endX;x++){
+      const type=tileAt(x,y);
+
+      if(type){
+        drawTile(type,x*TILE,y*TILE);
+      }
     }
-  });
+  }
 
-  window.addEventListener("keyup", event => {
-    keys[event.code] = false;
-  });
+  if(screenMode==="editor"&&gameMode==="edit"){
+    drawGrid();
+  }
 
-  window.addEventListener("resize", queueCanvasResize);
+  if(gameMode==="play"){
+    drawPlayer();
+  }
 
-  resizeCanvas();
-  goHome();
+  for(const particle of particles){
+    ctx.globalAlpha=Math.max(
+      0,
+      particle.life/particle.maximumLife
+    );
+
+    ctx.fillStyle=particle.color;
+    ctx.fillRect(
+      particle.x,
+      particle.y,
+      particle.size,
+      particle.size
+    );
+  }
+
+  ctx.globalAlpha=1;
+  ctx.restore();
+}
+
+function gameLoop(now){
+  const frameScale=
+    Math.min(35,now-lastFrameTime)/(1000/60);
+
+  lastFrameTime=now;
+
+  updatePlayer(frameScale);
+  draw();
+
   requestAnimationFrame(gameLoop);
+}
+
+function validateLevel(value){
+  if(!value||typeof value!=="object"||!value.tiles){
+    throw new Error("Invalid level");
+  }
+
+  const validated=blankLevel(
+    String(value.name||"Imported Level").slice(0,40),
+    backgrounds[value.background]?value.background:"night",
+    Math.max(.3,Math.min(1.2,Number(value.gravity)||.7))
+  );
+
+  for(const [key,type] of Object.entries(value.tiles)){
+    const [x,y]=key.split(",").map(Number);
+
+    if(
+      Number.isInteger(x)&&
+      Number.isInteger(y)&&
+      x>=0&&x<COLS&&
+      y>=0&&y<ROWS&&
+      allowedTypes.has(type)
+    ){
+      validated.tiles[key]=type;
+    }
+  }
+
+  return validated;
+}
+
+function toast(message){
+  document.querySelector(".toast")?.remove();
+
+  const element=document.createElement("div");
+  element.className="toast";
+  element.textContent=message;
+
+  document.body.appendChild(element);
+
+  setTimeout(()=>element.remove(),2200);
+}
+
+function pointerTile(event){
+  const rect=canvas.getBoundingClientRect();
+
+  return {
+    x:Math.floor((event.clientX-rect.left+camera.x)/TILE),
+    y:Math.floor((event.clientY-rect.top+camera.y)/TILE)
+  };
+}
+
+function paintTile(event,erase=false){
+  if(screenMode!=="editor"||gameMode!=="edit"){
+    return;
+  }
+
+  const position=pointerTile(event);
+  const key=`${position.x},${position.y}`;
+
+  if(
+    key===lastPainted||
+    position.x<0||
+    position.x>=COLS||
+    position.y<0||
+    position.y>=ROWS
+  ){
+    return;
+  }
+
+  lastPainted=key;
+
+  const activeTool=erase?"erase":selectedTool;
+
+  if(activeTool==="spawn"||activeTool==="goal"){
+    for(const existingKey of Object.keys(level.tiles)){
+      if(level.tiles[existingKey]===activeTool){
+        delete level.tiles[existingKey];
+      }
+    }
+  }
+
+  if(activeTool==="erase"){
+    delete level.tiles[key];
+  }else{
+    level.tiles[key]=activeTool;
+  }
+
+  editorLevel=level;
+}
+
+$("homeBtn").addEventListener("click",goHome);
+$("levelsBtn").addEventListener("click",showLevelSelect);
+$("campaignBtn").addEventListener("click",showLevelSelect);
+$("editorBtn").addEventListener("click",openEditor);
+$("levelBackBtn").addEventListener("click",goHome);
+$("restartBtn").addEventListener("click",restartLevel);
+
+$("testBtn").addEventListener("click",()=>{
+  if(gameMode==="play"){
+    stopEditorTest();
+  }else{
+    editorLevel=level;
+    startPlaying();
+  }
+});
+
+$("saveBtn").addEventListener("click",()=>{
+  editorLevel=level;
+
+  localStorage.setItem(
+    "pixelForgeCustom",
+    JSON.stringify(level)
+  );
+
+  toast("Custom level saved");
+});
+
+$("loadBtn").addEventListener("click",()=>{
+  try{
+    const saved=localStorage.getItem("pixelForgeCustom");
+
+    if(!saved){
+      toast("No custom level has been saved");
+      return;
+    }
+
+    level=validateLevel(JSON.parse(saved));
+    editorLevel=level;
+
+    syncEditorSettings();
+    toast("Custom level loaded");
+  }catch(error){
+    toast("Saved level is invalid");
+  }
+});
+
+$("clearBtn").addEventListener("click",()=>{
+  if(confirm("Clear the entire custom level?")){
+    level.tiles={};
+    editorLevel=level;
+  }
+});
+
+$("exportBtn").addEventListener("click",()=>{
+  importMode=false;
+
+  $("dataTitle").textContent="Export Level";
+  $("dataDescription").textContent=
+    "Copy this JSON to share or back up your custom level.";
+
+  $("dataArea").value=JSON.stringify(level,null,2);
+  $("dataConfirm").textContent="Copy";
+  $("dataModal").classList.remove("hidden");
+});
+
+$("importBtn").addEventListener("click",()=>{
+  importMode=true;
+
+  $("dataTitle").textContent="Import Level";
+  $("dataDescription").textContent=
+    "Paste exported Pixel Forge JSON below.";
+
+  $("dataArea").value="";
+  $("dataConfirm").textContent="Import";
+  $("dataModal").classList.remove("hidden");
+});
+
+$("dataCancel").addEventListener("click",()=>{
+  $("dataModal").classList.add("hidden");
+});
+
+$("dataConfirm").addEventListener("click",async()=>{
+  if(importMode){
+    try{
+      level=validateLevel(JSON.parse($("dataArea").value));
+      editorLevel=level;
+
+      syncEditorSettings();
+      $("dataModal").classList.add("hidden");
+      toast("Level imported");
+    }catch(error){
+      toast("Invalid level data");
+    }
+
+    return;
+  }
+
+  try{
+    await navigator.clipboard.writeText($("dataArea").value);
+    toast("Level copied");
+  }catch(error){
+    $("dataArea").select();
+    document.execCommand("copy");
+    toast("Level copied");
+  }
+
+  $("dataModal").classList.add("hidden");
+});
+
+$("resetProgressBtn").addEventListener("click",()=>{
+  if(confirm("Reset all campaign progress and scores?")){
+    progress={unlocked:1,best:{}};
+    saveProgress();
+    renderLevelSelect();
+    toast("Campaign progress reset");
+  }
+});
+
+$("winLevels").addEventListener("click",()=>{
+  $("winModal").classList.add("hidden");
+  showLevelSelect();
+});
+
+$("winReplay").addEventListener("click",()=>{
+  $("winModal").classList.add("hidden");
+  startCampaign(campaignIndex);
+});
+
+$("winNext").addEventListener("click",()=>{
+  $("winModal").classList.add("hidden");
+
+  if(campaignIndex<campaign.length-1){
+    startCampaign(campaignIndex+1);
+  }
+});
+
+$("tools").addEventListener("click",event=>{
+  const button=event.target.closest(".tool");
+
+  if(!button){
+    return;
+  }
+
+  selectedTool=button.dataset.tool;
+
+  document.querySelectorAll(".tool").forEach(tool=>{
+    tool.classList.toggle("selected",tool===button);
+  });
+});
+
+$("nameInput").addEventListener("input",event=>{
+  level.name=event.target.value;
+});
+
+$("bgSelect").addEventListener("change",event=>{
+  level.background=event.target.value;
+});
+
+$("gravityInput").addEventListener("input",event=>{
+  level.gravity=Number(event.target.value);
+  $("gravityLabel").textContent=level.gravity.toFixed(2);
+});
+
+canvas.addEventListener("contextmenu",event=>{
+  event.preventDefault();
+});
+
+canvas.addEventListener("pointerdown",event=>{
+  canvas.focus();
+
+  pointerDown=true;
+  lastPainted="";
+
+  paintTile(event,event.button===2);
+
+  try{
+    canvas.setPointerCapture(event.pointerId);
+  }catch(error){}
+});
+
+canvas.addEventListener("pointermove",event=>{
+  if(!pointerDown){
+    return;
+  }
+
+  paintTile(event,(event.buttons&2)!==0);
+});
+
+canvas.addEventListener("pointerup",event=>{
+  pointerDown=false;
+  lastPainted="";
+
+  try{
+    canvas.releasePointerCapture(event.pointerId);
+  }catch(error){}
+});
+
+canvas.addEventListener("pointercancel",()=>{
+  pointerDown=false;
+  lastPainted="";
+});
+
+window.addEventListener("keydown",event=>{
+  keys[event.code]=true;
+
+  if(
+    gameMode==="play"&&
+    ["ArrowLeft","ArrowRight","ArrowUp","Space"].includes(event.code)
+  ){
+    event.preventDefault();
+  }
+
+  if(gameMode==="play"&&event.code==="KeyR"){
+    restartLevel();
+  }
+
+  if(
+    screenMode==="editor"&&
+    gameMode==="play"&&
+    event.code==="Escape"
+  ){
+    stopEditorTest();
+  }
+});
+
+window.addEventListener("keyup",event=>{
+  keys[event.code]=false;
+});
+
+window.addEventListener("blur",()=>{
+  for(const key of Object.keys(keys)){
+    keys[key]=false;
+  }
+});
+
+window.addEventListener("resize",queueResize);
+
+resizeCanvas();
+goHome();
+requestAnimationFrame(gameLoop);
 })();
 </script>
 </body>
